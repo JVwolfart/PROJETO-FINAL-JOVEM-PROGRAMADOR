@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
+from django.core.validators import  validate_email
 # Create your views here.
 
 def login(request):
@@ -38,6 +39,12 @@ def cadastro(request):
         messages.add_message(request, messages.ERROR, 'ERRO! nenhum campo pode ficar vazio')
         return render(request, 'cadastro.html')
     
+    try: 
+        validate_email(email)
+    except:
+        messages.add_message(request, messages.ERROR, 'Email inválido')
+        return render(request, 'cadastro.html')
+
     if senha != senha2:
         messages.add_message(request, messages.ERROR, 'ERRO! senhas não conferem')
         return render(request, 'cadastro.html')
