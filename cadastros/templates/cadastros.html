@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block 'titulo'%}
+Área de cadastros
+{% endblock%}
+
+{% block 'conteudo'%}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastros</li>
+    </ol>
+</nav>
+  
+<h1 style="padding-top: 20px;" class="text-center text-primary">Área de cadastros</h1>
+{% include 'parciais/_messages.html'%}
+
+<div class="row py-5">
+    
+    <div class="col-md-3 col-6 mb-5">
+
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); background-color:aquamarine; border-radius: 20px;" class="py-3 px-3 text-center">
+            <a href="{% url 'grupos'%}">
+                <img src="{% static 'img/icone_grupos.jpg'%}" style="width:100%;">
+                Cadastro de grupos de despesa
+            </a>
+        </div>
+    </div>
+    <div class="col-md-3 col-6 mb-5">
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); background-color:aquamarine; border-radius: 20px;" class="py-3 px-3 text-center">
+            <a href="{% url 'tipos'%}">
+                <img src="{% static 'img/icone_tipos.png'%}" style="width:100%;">
+                Cadastro de tipos de despesa
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-5">
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); background-color:aquamarine; border-radius: 20px;" class="py-3 px-3 text-center">
+            <a href="{% url 'fpags'%}">
+                <img src="{% static 'img/icone_fpag.png'%}" style="width:100%;">
+                Cadastro de formas de pagamento
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-5">
+        
+    </div>
+    
+</div>
+<br><br>
+
+{% endblock %}

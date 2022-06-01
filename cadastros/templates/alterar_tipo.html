@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+
+{% block 'titulo'%}
+Alterar tipo
+{% endblock%}
+
+{% block 'conteudo'%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'cadastros'%}">Cadastros</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'tipos'%}">Tipos de despesa</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Alterar tipo</li>
+  </ol>
+</nav>
+<h1 style="padding-top: 20px;" class="text-center text-primary">Alterar tipo de despesa</h1>
+{% include 'parciais/_messages.html'%}
+
+
+<div class="row">
+
+  <div class="col-3"></div>
+  
+  <div class="col-lg-6">
+
+    <form method="post" action="{% url 'alterar_tipo' tipo.id%}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Tipo de despesa: </label>
+        <input type="text" class="form-control" name="tipo" placeholder="Tipo de despesa" value="{{tipo.tipo}}">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Grupo: </label>
+        <select name="grupo" class="form-control">
+          {% for g in grupos%}
+          {% if g == tipo.grupo %}
+          <option value="{{g.id}}" selected>{{g.grupo}}</option>
+          {% else %}
+          <option value="{{g.id}}">{{g.grupo}}</option>
+          {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Alterar tipo de despesa</button>
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

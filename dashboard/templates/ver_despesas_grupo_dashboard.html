@@ -1,0 +1,76 @@
+{% extends 'base.html'%}
+
+{% block 'titulo'%}
+Despesas por grupo Dashboard
+{% endblock%}
+
+{% block 'conteudo'%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Ver despesas por grupo este mês</li>
+  </ol>
+</nav>
+<h1 style="padding-top: 20px;" class="text-center text-primary">Despesas do grupo {{grupo}}</h1>
+<h3 style="padding-top: 20px;" class="text-center text-info">Total gasto neste mês para este grupo: R$ {{total}}</h3>
+{% include 'parciais/_messages.html'%}
+
+
+<div class="row">
+
+  <div class="col-12">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Despesa</th>
+          <th scope="col">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in despesas%}
+        <tr>
+            <td>{{c.data}}</td>
+            <td>{{c.tipo}}</td>
+            <td>{{c.despesa}}</td>
+            <td>R$ {{c.valor}}</td>
+            <td><a href="{% url 'alterar_despesa' c.id%}" title='Manutenção de despesa'><i class="fa-solid fa-pen-to-square text-primary"></i></a></td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+
+</div>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    {%if despesas.has_previous%}
+    <li class="page-item">
+      <a class="page-link" href="?p={{despesas.previous_page_number}}&mes={{mes}}&ano={{ano}}">Anterior</a>
+    </li>
+    {%endif%}
+    {%for pagina in despesas.paginator.page_range%}
+    {%if despesas.number == pagina%}
+      <li class="page-item active"><a class="page-link bg-success" href="?p={{pagina}}&mes={{mes}}&ano={{ano}}">{{pagina}}</a></li>
+    {% elif despesas.number > pagina|add:'-3'  and despesas.number < pagina|add:'3'%}
+      <li class="page-item"><a class="page-link" href="?p={{pagina}}&mes={{mes}}&ano={{ano}}">{{pagina}}</a></li>
+    {%endif%}
+    {%endfor%}
+    {%if despesas.has_next%}
+    <li class="page-item">
+      <a class="page-link" href="?p={{despesas.next_page_number}}&mes={{mes}}&ano={{ano}}">Próxima (última página = {{despesas.paginator.num_pages}})</a>
+    </li>
+    {%endif%}
+  </ul>
+</nav>
+
+
+
+
+</div>
+
+
+
+
+{% endblock %}

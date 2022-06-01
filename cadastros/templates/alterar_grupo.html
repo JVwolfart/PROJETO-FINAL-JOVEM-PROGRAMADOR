@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+
+{% block 'titulo'%}
+Alterar grupo
+{% endblock%}
+
+{% block 'conteudo'%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'cadastros'%}">Cadastros</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'grupos'%}">Grupos de despesa</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Alterar grupo</li>
+  </ol>
+</nav>
+<h1 style="padding-top: 20px;" class="text-center text-primary">Grupos de despesa</h1>
+{% include 'parciais/_messages.html'%}
+
+
+<div class="row">
+
+  <div class="col-3"></div>
+  
+  <div class="col-lg-6">
+
+    <form method="post" action="{% url 'alterar_grupo' grupo.id%}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Nome do grupo: </label>
+        <input type="text" class="form-control" name="grupo" placeholder="Nome do grupo" value="{{grupo.grupo}}">
+      </div>
+      <button type="submit" class="btn btn-primary">Alterar grupo</button>
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

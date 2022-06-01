@@ -1,0 +1,228 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block 'titulo'%}
+Tutorial básico do sistema
+{% endblock%}
+
+{% block 'conteudo'%}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Tutorial</li>
+    </ol>
+</nav>
+
+<h1 id="indice" style="padding-top: 20px;" class="text-center text-primary">Tutorial básico</h1>
+{% include 'parciais/_messages.html'%}
+<h5>Índice</h5>
+<li><a href="#lancamento">Lançamento de despesas</a></li>
+<li><a href="#tipo">Cadastrando tipos de despesa personalizados</a></li>
+<li><a href="#grupo">Cadastrando grupos de despesa personalizados</a></li>
+<li><a href="#fpag">Cadastrando formas de pagamento personalizadas</a></li>
+<li><a href="#dashboard">Dashboard</a></li>
+<li><a href="#relatorios">Relatórios</a></li>
+
+<div id="voltar">
+    <a href="#indice" title="Voltar para o topo"><i class="fa-solid fa-arrow-up fa-3x"></i></a>
+</div>
+
+<h5 class="mt-5">Seja bem vindo ao nosso sistema de controle de despesas</h5>
+
+<p>De acordo com a maior parte dos educadores financeiros, um dos passos mais importantes
+para educação financeira é primeiramente a pessoa anotar todos os seus gastos e despesas para
+ter uma ideia de onde está gastando o seu dinheiro.    
+</p>
+
+<p>Baseado nessa necessidade resolvemos desenvolver esse nosso sistema de controle de despesas para auxiliar as pessoas que desejam iniciar sua educação financeira.</p>
+
+<p>O sistema consiste basicamente em um usuário fazer o lançamento das suas despesas, para isso basta apenas um simples cadastro para poder fazer login e acessar o sistema.</p>
+
+<h5 id="lancamento" class="text-success fs-3 text-center">Lançamento de despesas</h5>
+
+<p>Basicamente para lançar as despesas o usuário deverá informar a data da despesa, o tipo da despesa, a forma de pagamento e o valor e também tem um campo adicional onde ele pode descrever um pouco dessa despesa
+para facilitar também uma busca futura no campo de pesquisa.    
+</p>
+<div class="row">
+    <div class="col-lg-6">
+        <img src="{% static 'img/lancamento_de_despesas.png'%}" style="width: 80%;" class="mb-3">
+    </div>
+
+    <div class="col-lg-6">
+        <p>Quanto ao tipo de despesa e a forma de pagamento, o sistema já disponibiliza alguns tipos padrão previamente cadastrados, mas o usuário tem a possibilidade e a liberdade de criar seus tipos de despesa personalizados</p>
+
+        <h6>Exemplo de alguns tipos de despesa padrão do sistema:</h6>
+
+        <ul>
+            <li>Cinema</li>
+            <li>Passeio no shopping</li>
+            <li>Mensalidade da escola</li>
+            <li>Mensalidade da faculdade</li>
+            <li>Consulta médica</li>
+            <li>Exames</li>
+            <li>Combustível</li>
+            <li>Compras na feira</li>
+            <li>Compras no supermercado</li>
+            <li>Plano de saúde</li>
+        </ul>
+
+        <h6>Exemplo de algumas formas de pagamento padrão do sistema:</h6>
+
+        <ul>
+            <li>Dinheiro</li>
+            <li>Cartão de crédito</li>
+            <li>Cartão de débito</li>
+            <li>Pix</li>
+        </ul>
+
+</div>
+</div>
+
+<div class="row">
+    <p>Para os tipos, grupos e formas de pagamento personalizados criados pelo usuário ele tem a opção de posteriormente edita-los ou até mesmo desativa-los ou reativa-los de acordo com sua necessidade. Mas os que são padrão do sistema o usuário não terá permissão para edita-los ou desativa-los.</p>
+    <p>Para editar ou excluir lançamentos de despesa é bastante simples, na própria tela de lançamento das despesas o usuário poderá ver logo abaixo as últimas 5 despesas lançadas em uma lista com um ícone de edição, basta clicar nesse ícone que o sistema será redirecionado para o modo de edição ou eliminação do registro.</p>
+    <p>Caso o registro que queira editar não seja um dos 5 últimos lançados, não tem problema, ao lado da tela de lançamento de despesas tem um ícone de manutenção de despesas e clicando nesse ícone o usuário será redirecionado a uma lista com todos os seus registros de despesa em ordem de data, onde ele poderá navegar por essa lista e selecionar o registro que deseja alterar ou eliminar.</p>
+    <p>Para alterar registros de despesa também é possível na seção de relatórios, para isso basta clicar no ícone do olho para visualizar as despesas e selecionar a despesa que deseja editar ou eliminar.</p>
+</div>
+
+
+<h5 id="tipo" class="text-success fs-3 text-center">Criando tipos de despesa personalizados</h5>
+
+<p>Para criar um tipo de despesa personalizado é muito simples, basta acessar o menu de cadastros na opção tipos de despesa</p>
+
+<p>Basicamente para criar um tipo de despesa personalizado o usuário deverá informar uma descrição e o mais importante, definir a que grupo essa despesa pertence, por padrão o sistema já vem cadastrado alguns grupos mais básicos, mas o usuário também tem a possibilidade de criar novos grupos de despesa personalizados (para isso siga os passos mais abaixo no tutorial de como criar grupos personalizados)</p>
+
+<div class="row">
+<div class="col-lg-6">
+    <p>Para cadastrar um tipo de despesa personalizado primeiramente verifique se o grupo a qual esse tipo pertence não se encontra nos grupos padrão do sistema ou os que você cadastrou, caso não se encontre, você deve primeiro ir até o cadastro de grupos e cadastrar o grupo (mas apenas se o grupo não existir) depois disso retornar ao cadastro de tipos de despesa e fazer o cadastro do tipo de despesa. Quando você retornar ao cadastro do tipo de despesa você vai ver que o grupo que você acabou de cadastrar já vai constar na lista de grupos para que você possa selecionar no cadastro de tipos</p>
+
+    <p>Quanto ao grupo de despesa, o sistema já disponibiliza alguns grupos padrão previamente cadastrados, mas o usuário tem a possibilidade e a liberdade de criar seus grupos de despesa personalizados caso nenhum dos grupos previamente cadastrados se enquadre naquilo que ele deseja para aquele tipo de despesa.</p>
+</div>
+<div class="col-lg-6">
+    
+    
+    <h6>Exemplo de alguns grupos de despesa padrão do sistema:</h6>
+
+    <ul>
+        <li>Despesa com veículo</li>
+        <li>Despesas com saúde.</li>
+        <li>Despesas com diversão</li>
+        <li>Despesas da família</li>
+        <li>Despesas com educação</li>
+    </ul>
+
+
+    <p>Vale lembrar que um grupo pode abranger diversos tipos de despesa. A ideia de grupos serve justamente para agregar os valores dos tipos de lançamento pertencentes ao mesmo grupo facilitando assim a leitura dos relatórios futuramente.</p>
+</div>
+</div>
+
+
+<div class="row">
+    <h6>Exemplo da tela de cadastro de tipos de despesa para o cadastro das despesas personalizadas do usuário</h6>
+    <div class="col-12">
+        <img src="{% static 'img/tipos_de_despesa.png'%}" style="width: 100%;" class="mb-3">
+    </div>
+
+
+</div>
+
+<h5 id="grupo" class="text-success fs-3 text-center">Criando grupos de despesa personalizados</h5>
+
+<p>Caso nenhum dos grupos previamente cadastrados no sistema atenda sua necessidade você tem a liberdade de criar seus grupos personalizados, para isso basta acessar o menu de cadastros na opção grupos de despesa.</p>
+<p>Basicamente para criar grupos personalizados o usuário deve informar apenas uma descrição do grupo que deseja criar.</p>
+
+<div class="row">
+    <h6>Exemplo da tela de cadastro de grupos de despesa personalizados do usuário</h6>
+    <div class="col-12">
+        <img src="{% static 'img/grupos_de_despesas.png'%}" style="width: 100%;" class="mb-3">
+    </div>
+
+
+</div>
+
+<h5 id="fpag" class="text-success fs-3 text-center">Criando formas de pagamento personalizados</h5>
+
+<p>Caso nenhuma das formas de pagamento previamente cadastradas no sistema atenda sua necessidade você tem a liberdade de criar suas formas de pagamento personalizados, para isso basta acessar o menu de cadastros na opção formas de pagamento.</p>
+<p>Basicamente para criar formas de pagamento personalizados o usuário deve informar apenas uma descrição do forma de pagamento que deseja criar.</p>
+
+<div class="row">
+    <h6>Exemplo da tela de cadastro de formas de pagamento personalizadas do usuário</h6>
+    <div class="col-12">
+        <img src="{% static 'img/fpag.png'%}" style="width: 100%;" class="mb-3">
+    </div>
+
+
+</div>
+
+<u class="text-warning"><h3 id="dashboard" class="text-center mt-5 text-warning fs-1">Dashboard</h3></u>
+
+<p>O sistema possui na sua página inicial um dashboard bastante completo e intuitivo onde o usuário pode acompanhar a evolução de seus gastos em diversos períodos.</p>
+
+<p>Primeiramente o sistema vai mostrar no dashboard todas as despesas por grupo no mês corrente com um gráfico para indicar o percentual de gasto com cada grupo.</p>
+
+<div class="row">
+    <h6>Exemplo da tela de dashboard do mês corrente</h6>
+    <p>OBS: Existe também a possibilidade de selecionar meses anteriores</p>
+    <img src="{% static 'img/mes_corrente.png'%}" style="width: 100%;" class="mb-3">
+</div>
+
+<p>Na sequência logo abaixo o usuário poderá visualizar todas as despesas do ano corrente, com um gráfico mostrando o quanto foi gasto em cada um dos meses.</p>
+
+<div class="row">
+    <h6>Exemplo da tela de dashboard do ano corrente</h6>
+    <p>OBS: Existe também a possibilidade de selecionar anos anteriores</p>
+    <img src="{% static 'img/ano_corrente.png'%}" style="width: 100%;" class="mb-3">
+</div>
+
+<p>Por último, no final do dashboard o usuário pode ver a posição por ano de seus gastos, considerando todos os períodos o qual ele tenha lançamentos.</p>
+
+<div class="row">
+    <h6>Exemplo da tela de dashboard de todos os períodos</h6>
+    <img src="{% static 'img/tudo.png'%}" style="width: 100%;" class="mb-3">
+</div>
+
+<u class="text-warning"><h3 id="relatorios" class="text-center mt-5 text-warning fs-1">Relatórios</h3></u>
+<p>Apesar de possuir um dashboard bastante completo e intuitivo o sistema também possui a opção de alguns relatórios, que são os seguintes:</p>
+
+<div class="row">
+    <h6>Relatório por data (tudo)</h6>
+    <p>Nesse relatório o usuário vai listar em tela todos os seus lançamentos agrupados por data e tem a opção de clicar no ícone do olho para listar todos os lançamentos do dia</p>
+
+    <h6>Relatório por data (intervalo de datas)</h6>
+    <p>Idêntico ao relatório por data, porém neste o usuário informa apenas o intervalo de datas que deseja ver o relatório</p>
+    <img src="{% static 'img/relatorio_data.png'%}" style="width: 100%;" class="mb-3">
+</div>
+
+
+<div class="row">
+    <h6>Relatório por tipo (tudo)</h6>
+    <p>Nesse relatório o usuário vai listar em tela todos os seus lançamentos agrupados por tipo e tem a opção de clicar no ícone do olho para listar todos os lançamentos daquele tipo</p>
+
+    <h6>Relatório por tipo (intervalo de datas)</h6>
+    <p>Idêntico ao relatório por tipo, porém neste o usuário informa apenas o intervalo de datas que deseja ver o relatório</p>
+    <p>OBS: A opção de relatórios por tipo ou tipo intervalo de datas também traz um gráfico com o percentual de gasto em cada tipo</p>
+    <img src="{% static 'img/relatorio_tipo.png'%}" style="width: 100%;" class="mb-3">
+</div>
+
+<div class="row">
+    <h6>Relatório por grupo (tudo)</h6>
+    <p>Nesse relatório o usuário vai listar em tela todos os seus lançamentos agrupados por grupo e tem a opção de clicar no ícone do olho para listar todos os lançamentos daquele grupo</p>
+
+    <h6>Relatório por grupo (intervalo de datas)</h6>
+    <p>Idêntico ao relatório por grupo, porém neste o usuário informa apenas o intervalo de datas que deseja ver o relatório</p>
+    <p>OBS: A opção de relatórios por grupo ou grupo intervalo de datas também traz um gráfico com o percentual de gasto em cada grupo</p>
+    <img src="{% static 'img/relatorio_grupo.png'%}" style="width: 100%;" class="mb-3">
+</div>
+
+<div class="row">
+    <h6>Relatório por forma de pagamento (tudo)</h6>
+    <p>Nesse relatório o usuário vai listar em tela todos os seus lançamentos agrupados por forma de pagamento e tem a opção de clicar no ícone do olho para listar todos os lançamentos daquela forma de pagamento</p>
+
+    <h6>Relatório por forma de pagamento (intervalo de datas)</h6>
+    <p>Idêntico ao relatório por forma de pagamento, porém neste o usuário informa apenas o intervalo de datas que deseja ver o relatório</p>
+    <p>OBS: A opção de relatórios por forma de pagamento ou forma de pagamento intervalo de datas também traz um gráfico com o percentual de gasto em cada forma de pagamento</p>
+    <img src="{% static 'img/relatorio_fpag.png'%}" style="width: 100%;" class="mb-3">
+</div>
+
+
+{% endblock %}

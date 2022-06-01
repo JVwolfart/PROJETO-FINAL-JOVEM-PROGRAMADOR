@@ -1,0 +1,74 @@
+{% extends 'base.html'%}
+
+{% block 'titulo'%}
+Despesas por intervalo de datas
+{% endblock%}
+
+{% block 'conteudo'%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'relatorios'%}">Relatórios</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Despesas por intervalo de datas</li>
+  </ol>
+</nav>
+<h1 style="padding-top: 20px;" class="text-center text-primary">Despesas por intervalo de datas</h1>
+<h5 style="padding-top: 20px;" class="text-center text-secondary">Data inicial: {{data_inicial}} e data final: {{data_final}}</h5>
+<h3 style="padding-top: 20px;" class="text-center text-info">Total de valor no intervalo: R$ {{total}}</h3>
+{% include 'parciais/_messages.html'%}
+
+
+<div class="row">
+
+  <div class="col-12">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Nº de registros</th>
+          <th scope="col">Visualizar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in despesas%}
+        <tr>
+            <td>{{c.data}}</td>
+            <td>R$ {{c.total}}</td>
+            <td>{{c.count}}</td>
+            <td><a href="{% url 'ver_despesas' c.data%}" class="btn" title='Ver despesas'><i class="fa-solid fa-eye text-info fa-xl"></i></a></td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+
+</div>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    {%if despesas.has_previous%}
+    <li class="page-item">
+      <a class="page-link" href="?p={{despesas.previous_page_number}}&data_inicial={{data_inicial_sf}}&data_final={{data_final_sf}}">Anterior</a>
+    </li>
+    {%endif%}
+    {%for pagina in despesas.paginator.page_range%}
+    {%if despesas.number == pagina%}
+      <li class="page-item active"><a class="page-link bg-success" href="?p={{pagina}}&data_inicial={{data_inicial_sf}}&data_final={{data_final_sf}}">{{pagina}}</a></li>
+    {% elif despesas.number > pagina|add:'-3'  and despesas.number < pagina|add:'3'%}
+      <li class="page-item"><a class="page-link" href="?p={{pagina}}&data_inicial={{data_inicial_sf}}&data_final={{data_final_sf}}">{{pagina}}</a></li>
+    {%endif%}
+    {%endfor%}
+    {%if despesas.has_next%}
+    <li class="page-item">
+      <a class="page-link" href="?p={{despesas.next_page_number}}&data_inicial={{data_inicial_sf}}&data_final={{data_final_sf}}">Próxima (última página = {{despesas.paginator.num_pages}})</a>
+    </li>
+    {%endif%}
+  </ul>
+</nav>
+
+</div>
+
+
+
+
+{% endblock %}

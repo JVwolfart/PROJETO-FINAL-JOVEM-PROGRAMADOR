@@ -1,0 +1,508 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block 'titulo'%}
+Documentação do sistema
+{% endblock%}
+
+{% block 'conteudo'%}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Documentação</li>
+    </ol>
+</nav>
+
+<h1 id="indice" style="padding-top: 20px;" class="text-center text-primary">Documentação</h1>
+{% include 'parciais/_messages.html'%}
+
+
+<div title="header"><p style="line-height: 100%; margin-bottom: 0cm"><img src="Plano%20de%20Desenvolvimento_html_83abaed5835bf7ca.png" name="Imagem 22" width="108" height="63" style="position: absolute; top: -1.65cm; left: 13.92cm" border="0"/>
+    <br/>
+    
+        </p>
+    </div>
+    <h1 lang="pt-BR" class="western">1Visão geral</h1>
+    <ol>
+        <li value="1"><h2 lang="pt-BR" class="western">Descrição do
+        Projeto</h2>
+    </ol>
+    <table width="100%" cellpadding="7" cellspacing="0">
+        <col width="16*"/>
+    
+        <col width="240*"/>
+    
+        <tr valign="top">
+            <td width="6%" bgcolor="#deeaf6" style="background: #deeaf6; border: none; padding: 0cm"><p align="center">
+                <br/>
+    
+                </p>
+            </td>
+            <td width="94%" bgcolor="#deeaf6" style="background: #deeaf6; border: none; padding: 0cm"><p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i>Projeto
+                desafio do programa Jovem Programador - SENAC Palhoça</i></font></font></p>
+                <p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i>Projeto
+                escolhido: Sistema de controle de despesas.</i></font></font></p>
+                <p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm"><font color="#595959"><font size="1" style="font-size: 8pt"><i>Envolvidos:
+                João Vitor Wolfart, Kauan Trindade Gonçalves e Marcelo Henrique
+                Gaspar Gonçalves</i></font></font></p>
+
+                <p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm"><font color="#595959"><font size="1" style="font-size: 8pt"><i>Professor: Wildson Caio Felipe</i></font></font></p>
+            </td>
+        </tr>
+    </table>
+
+
+    
+
+
+    <p lang="pt-BR" style="line-height: 120%; margin-bottom: 0.32cm"><br/>
+    <br/>
+    
+    </p>
+    <ol start="2">
+        <li><h2 lang="pt-BR" class="western">Escopo do projeto</h2>
+    </ol>
+    <table width="100%" cellpadding="7" cellspacing="0">
+        <col width="16*"/>
+    
+        <col width="240*"/>
+    
+        <tr valign="top">
+            <td width="6%" bgcolor="#deeaf6" style="background: #deeaf6; border: none; padding: 0cm"><p align="center">
+                <br/>
+    
+                </p>
+            </td>
+            <td width="94%" bgcolor="#deeaf6" style="background: #deeaf6; border: none; padding: 0cm"><p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><span lang="pt-BR">Decidimos
+                fazer esse projeto pois sabemos que existem muitas pessoas que </span><span lang="pt-BR">t</span><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">êm
+                dificuldade em organizar suas finanças (as vezes acabam gastando
+                mais do que ganham)</span></font></font><span lang="pt-BR"> e
+                todos os educadores financeiros dizem que o primeiro passo para se
+                educar financeiramente </span><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">é
+                anotar tudo que você gast</span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">a,
+                então decidimos fazer esse sistema.</span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">-
+                O sistema deve conter um controle de usuários através do
+                cadastro de usuários.</span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">-
+                O sistema vai controlar as despesas por usuário, tipos de
+                despesa, grupos de despesa e formas de pagamento.</span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">-
+                </span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">Por
+                padrão o sistema terá algumas formas de pagamento, grupos de
+                despesa e tipos de despesa padrão que virão previamente
+                cadastrados, seriam elas:</span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>-
+                </b></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>GRUPOS
+                DE DESPESA PADRÃO DO SISTEMA</b></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>:</b></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">-
+                </span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">Despesas
+                com veículo.</span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">-
+                Despesas com saúde.</span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">-
+                Despesas com diversão</span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">-
+                Despesas da família</span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">-
+                Despesas com educação</span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR">-
+                T</span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>IPOS
+                DE DESPESA PADRÃO DO SISTEMA:</b></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Cinema</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Passeio no shopping</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Mensalidade da escola</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Mensalidade da faculdade</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Consulta médica</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Exames</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Combustível</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Compras na feira</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Compras no supermercado.</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">Plano
+                de saúde.</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>-
+                FORMAS DE PAGAMENTO PADRÃO DO SISTEMA:</b></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Dinheiro</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Cartão de crédito</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Cartão de débito</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Pix</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">Para
+                as opções padrão do sistema o usuário poderá utilizá-las mas
+                não terá autorização para fazer qualquer modificação ou
+                exclusão dessas opções, porém além das opções padrão o
+                usuário também terá a opção de criar suas próprias opções
+                de FORMA DE PAGAMENTO, TIPOS DE DESPESA e GRUPOS DE DESPESA
+                personalizados para seu uso.</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">Os
+                itens personalizados do usuário poderão ser alterados de acordo
+                com a sua necessidade, porém o sistema não permitirá a exclusão
+                dos itens personalizados para não afetar os registros os quais
+                eles serão chave estrangeira no banco de dados. Mas o usuário
+                tem a opção de ao invés de excluir o item personalizado, ele
+                pode simplesmente desativar esse item e então ele não aparecerá
+                mais como opção para que ele faça o cadastro das suas despesas.</span></span></font></font></i></font></font></p>
+                <p align="center" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="4" style="font-size: 15pt"><span lang="pt-BR"><b>OS
+                CADASTROS</b></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>-
+                CADASTRO DE GRUPOS:</b></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">O
+                usuário deverá informar o nome do grupo que ele deseja
+                cadastrar.</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>-
+                CADASTRO </b></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>DE
+                FORMAS DE PAGAMENTO:</b></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">O
+                usuário deverá informar o nome da forma de pagamento que ele
+                deseja cadastrar.</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>-
+                CADASTRO DE TIPOS DE DESPESA:</b></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">O
+                usuário deverá informar o nome do tipo de despesa que ele deseja
+                cadastrar e também deve informar a que grupo de despesa o tipo
+                pertence (portanto é importante antes de cadastrar um tipo de
+                despesa verificar se o grupo a qual deseja inserir esse tipo
+                existe, senão deve primeiramente cadastrar o grupo e depois o
+                tipo, </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">pois
+                todo tipo de despesa deve pertencer a um grupo de despesa</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">).</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>-
+                CADASTRO DE DESPESAS:</b></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">O
+                sistema permitirá o cadastro das despesas do usuário, o usuário
+                deverá informar os seguintes dados para lançar a despesa:</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Data da despesa</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Tipo de despesa</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Forma de pagamento</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">Valor
+                da despesas</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Descrição da despesa (opcional)</span></span></font></font></i></font></font></p>
+                <p style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">Após
+                feito o lançamento da despesa o usuário fica com opção de
+                fazer o CRUD completo podendo alterar ou excluir essa despesa.</span></span></font></font></i></font></font></p>
+                <p align="center" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="4" style="font-size: 15pt"><span lang="pt-BR"><b>RELATÓRIOS
+                E GRÁFICOS</b></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">Após
+                lançadas as despesas o usuário consegue consultar os relatórios,
+                os relatórios tem a opção de consultar todos os registros, ou
+                então a opção do usuário escolher entre o intervalo de datas
+                que deseja consultar.</span></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">As
+                opções de consulta são as seguintes:</span></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>POR
+                DATA</b></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Ver todas as despesas por data. </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">(essa
+                consulta irá retornar todas as despesas registradas no sistema
+                para aquele usuário agrupadas por dia, </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">assim
+                como a quantidade de registros do dia</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">)</span></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">Ver
+                todas as despesas por intervalo de datas. </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">(essa
+                consulta irá retornar todas as despesas registradas no sistema
+                para aquele usuário agrupadas por dia, </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">assim
+                como a quantidade de registros do dia</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">dentro
+                do intervalo de datas escolhido</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">)</span></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">Em
+                ambas as consultas por data haverá </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">também</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                um botão que irá mostrar todas as despesas daquele dia.</span></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>POR
+                TIPO</b></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Ver as despesas por tipo. </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">(essa
+                consulta irá retornar todas as despesas registradas no sistema
+                para aquele usuário agrupadas por </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">tipo</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">,
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">assim
+                como a quantidade de registros do </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">tipo</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">)</span></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">Ver
+                as despesas por tipo e intervalo de datas.</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">(essa
+                consulta irá retornar todas as despesas registradas no sistema
+                para aquele usuário agrupadas por </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">tipo</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">,
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">assim
+                como a quantidade de registros do </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">tipo
+                dentro do intervalo de datas escolhido</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">)</span></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">Em
+                ambas as consultas por </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">tipo</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                haverá </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">também</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                um botão que irá mostrar todas as despesas daquele </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">tipo
+                e também haverá no fim da página um </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>GRÁFICO</b></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                mostrando os percentuais de gasto de cada tipo</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">.</span></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>POR
+                GRUPO</b></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Ver as despesas por grupo. </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">(essa
+                consulta irá retornar todas as despesas registradas no sistema
+                para aquele usuário agrupadas por </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">grupo</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">,
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">assim
+                como a quantidade de registros do </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">grupo</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">)</span></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Ver as despesas por grupo e intervalo de datas. </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">(essa
+                consulta irá retornar todas as despesas registradas no sistema
+                para aquele usuário agrupadas por </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">grupo</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">,
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">assim
+                como a quantidade de registros do </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">grupo
+                dentro do intervalo de datas escolhido</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">)</span></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">Em
+                ambas as consultas por </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">grupo</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                haverá </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">também</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                um botão que irá mostrar todas as despesas daquele </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">grupo</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                e também haverá no fim da página um </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>GRÁFICO</b></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                mostrando os percentuais de gasto de cada </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">grupo</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">.</span></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>POR
+                FORMA DE PAGAMENTO</b></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Ver as despesas por forma de pagamento. </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">(essa
+                consulta irá retornar todas as despesas registradas no sistema
+                para aquele usuário agrupadas por </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">forma
+                de pagamento</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">,
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">assim
+                como a quantidade de registros d</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">a</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">forma
+                de pagamento</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">)</span></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">-
+                Ver as despesas por forma de pagamento e intervalo de datas. </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">(essa
+                consulta irá retornar todas as despesas registradas no sistema
+                para aquele usuário agrupadas por </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">forma
+                de pagamento</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">,
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">assim
+                como a quantidade de registros d</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">a</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">forma
+                de pagamento dentro do intervalo de datas escolhido</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">)</span></span></font></font></i></font></font></p>
+                <p align="left" style="margin-right: 1.02cm; margin-top: 0.14cm"><font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">Em
+                ambas as consultas por </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">forma
+                de pagamento</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                haverá </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">também</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                um botão que irá mostrar todas as despesas </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">que
+                utilizaram aquela</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">forma
+                de pagamento</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                e também haverá no fim da página um </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><b>GRÁFICO</b></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">
+                mostrando os percentuais de gasto de cada </span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">forma
+                de pagamento</span></span></font></font><font color="#595959"><font size="1" style="font-size: 8pt"><span lang="pt-BR"><span style="font-weight: normal">.</span></span></font></font></i></font></font></p>
+            </td>
+        </tr>
+        <tr valign="top">
+            <td width="6%" bgcolor="#deeaf6" style="background: #deeaf6; border: none; padding: 0cm"><p align="center">
+                <br/>
+    
+                </p>
+            </td>
+            <td width="94%" bgcolor="#deeaf6" style="background: #deeaf6; border: none; padding: 0cm"><p style="margin-right: 1.02cm; margin-top: 0.14cm">
+                <br/>
+    
+                </p>
+            </td>
+        </tr>
+    </table>
+    <p lang="pt-BR" style="line-height: 120%; margin-bottom: 0.32cm"><br/>
+    <br/>
+    
+    </p>
+    <ol start="3">
+        <li><h2 lang="pt-BR" class="western">Requisitos de alto nível</h2>
+    </ol>
+    <table width="100%" cellpadding="7" cellspacing="0">
+        <col width="16*"/>
+    
+        <col width="240*"/>
+    
+        <tr valign="top">
+            <td width="6%" bgcolor="#deeaf6" style="background: #deeaf6; border: none; padding: 0cm"><p align="center">
+                <br/>
+    
+                </p>
+            </td>
+            <td width="94%" bgcolor="#deeaf6" style="background: #deeaf6; border: none; padding: 0cm"><p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i>-
+                Utilização da linguagem Python para o desenvolvimento dos
+                códigos.</i></font></font></p>
+                <p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i>-
+                Utilização do banco de dados Sqlite3 para desenvolvimento e
+                posteriormente postgresql para deploy.</i></font></font></p>
+                <p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i>-
+                Utilização do Bootstrap para construção da interface.</i></font></font></p>
+                <p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i>-
+                Utilizaç<font color="#595959"><font size="1" style="font-size: 8pt">ão
+                do framework Django </font></font><font color="#595959"><font size="1" style="font-size: 8pt">para
+                desenvolvimento do Back-end</font></font><font color="#595959"><font size="1" style="font-size: 8pt">.</font></font></i></font></font></p>
+                <p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i>-
+                Utilização do VsCode para desenvolver os códigos.</i></font></font></p>
+                <p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i>-
+                Utilização do Heroku para fazer o deploy.</i></font></font></p>
+                <p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm"><font color="#595959"><font size="1" style="font-size: 8pt"><i>-
+                Utilizaç<font color="#595959"><font size="1" style="font-size: 8pt">ão
+                do Google Charts para construção dos gráficos.</font></font></i></font></font></p>
+            </td>
+        </tr>
+    </table>
+    <p lang="pt-BR" style="line-height: 120%; margin-bottom: 0.32cm"><br/>
+    <br/>
+    
+    </p>
+    <p lang="pt-BR" style="line-height: 120%; margin-bottom: 0.32cm"><br/>
+    <br/>
+    
+    </p>
+    <ol start="4">
+        <li><h2 lang="pt-BR" class="western">Resultados finais</h2>
+    </ol>
+    <table width="100%" cellpadding="7" cellspacing="0">
+        <col width="16*"/>
+    
+        <col width="240*"/>
+    
+        <tr valign="top">
+            <td width="6%" bgcolor="#deeaf6" style="background: #deeaf6; border: none; padding: 0cm"><p align="center">
+                <br/>
+    
+                </p>
+            </td>
+            <td width="94%" bgcolor="#deeaf6" style="background: #deeaf6; border: none; padding: 0cm"><p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i>Liste
+                as agências, os participantes ou as divisões, que serão
+                afetados por esse projeto e descreva como eles serão afetados.</i></font></font></p>
+                <p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i>Com
+                esse sistema o usu<font color="#595959"><font size="1" style="font-size: 8pt">ário
+                terá uma maneira fácil de controlar e gerenciar suas despesas,
+                de forma totalmente eletrônica e sem uso de papel.</font></font></i></font></font></p>
+                <p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm"><font color="#595959"><font size="1" style="font-size: 8pt"><i><font color="#595959"><font size="1" style="font-size: 8pt">O
+                sistema poderá ser acessado da maioria dos navegadores e em
+                diversos dispositivos conectados a internet, </font></font><font color="#595959"><font size="1" style="font-size: 8pt">como
+                por exemplo computadores, notebooks e smartphones.</font></font></i></font></font></p>
+            </td>
+        </tr>
+    </table>
+    <p lang="pt-BR" style="line-height: 120%; margin-bottom: 0.32cm"><br/>
+    <br/>
+    
+    </p>
+    <ol start="5">
+        <li><h2 lang="pt-BR" class="western">Partes afetadas</h2>
+    </ol>
+    <table width="100%" cellpadding="7" cellspacing="0">
+        <col width="16*"/>
+    
+        <col width="240*"/>
+    
+        <tr valign="top">
+            <td width="6%" bgcolor="#deeaf6" style="background: #deeaf6; border: none; padding: 0cm"><p align="center">
+                <br/>
+    
+                </p>
+            </td>
+            <td width="94%" bgcolor="#deeaf6" style="background: #deeaf6; border: none; padding: 0cm"><p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <font color="#595959"><font size="1" style="font-size: 8pt"><i>Liste
+                os processos ou sistemas empresariais que serão impactados por
+                este projeto e descreva como eles serão afetados.</i></font></font></p>
+                <p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm; margin-bottom: 0.28cm">
+                <br/>
+    <br/>
+    
+                </p>
+                <p lang="pt-BR" style="margin-right: 1.02cm; margin-top: 0.14cm"><font color="#595959"><font size="1" style="font-size: 8pt"><i>Os
+                usu<font color="#595959"><font size="1" style="font-size: 8pt">ários
+                </font></font><font color="#595959"><font size="1" style="font-size: 8pt">em
+                geral</font></font><font color="#595959"><font size="1" style="font-size: 8pt">
+                que queiram uma maneira fácil de controlar suas despesas</font></font>.</i></font></font></p>
+            </td>
+        </tr>
+    </table>
+    <p style="text-transform: uppercase; line-height: 0.74cm; margin-bottom: 0cm">
+    <br/>
+    
+    </p>
+    <div title="footer"><p lang="pt-BR" style="line-height: 100%; margin-left: -0.38cm; margin-bottom: 0cm">
+        <br/>
+    
+        </p>
+    </div>
+
+{% endblock %}

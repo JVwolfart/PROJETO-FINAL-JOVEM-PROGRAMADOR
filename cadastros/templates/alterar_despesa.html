@@ -1,0 +1,82 @@
+{% extends 'base.html'%}
+
+{% block 'titulo'%}
+Alteração de despesas
+{% endblock%}
+
+{% block 'conteudo'%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'despesa'%}">Lançamento de despesas</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Alteração de despesas</li>
+  </ol>
+</nav>
+<h1 style="padding-top: 20px;" class="text-center text-primary">Alteração de despesas</h1>
+{% include 'parciais/_messages.html'%}
+
+
+<div class="row">
+
+  <div class="col-3"></div>
+  
+  <div class="col-lg-6">
+
+    <form method="post" action="{% url 'alterar_despesa' despesa.id%}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Tipo de despesa: </label>
+        <select name="tipo" class="form-control">
+          <option value="">Selecione o tipo de despesa</option>
+          {% for t in tipos %}
+          {% if t == despesa.tipo%}
+          <option value="{{t.id}}" selected>{{t.tipo}}</option>
+          {% else %}
+          <option value="{{t.id}}">{{t.tipo}}</option>
+          {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Data: </label>
+        <input type="date" name="data" value="{{data}}" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Forma de pagamento: </label>
+        <select name="fpag" class="form-control">
+          <option value="">Selecione a forma do pagamento</option>
+          {% for f in fpags %}
+          {% if f == despesa.fpag %}
+          <option value="{{f.id}}" selected>{{f.forma}}</option>
+          {% else %}
+          <option value="{{f.id}}">{{f.forma}}</option>
+          {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Valor: </label>
+        <input type="number" class="form-control" name="valor" step="0.01" placeholder="Valor da despesa" min="0" value="{{valor_despesa}}">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Descrição da despesa (opcional): </label>
+        <textarea name="despesa" cols="30" rows="10" class="form-control" placeholder="Digite aqui uma breve descrição da sua despesa (opcional)">{{despesa.despesa}}</textarea>
+      </div>
+      <div class="row">
+        <button type="submit" class="btn btn-primary my-3">Alterar despesa</button>
+      <a href="{% url 'excluir_despesa' despesa.id %}" class="btn btn-danger my-3">Excluir despesa</a>
+      <a href="{% url 'despesa' %}" class="btn btn-info my-3">Retornar sem alterar</a>
+      </div>
+      
+    </form>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

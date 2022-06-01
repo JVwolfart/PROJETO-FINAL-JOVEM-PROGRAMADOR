@@ -1,0 +1,115 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block 'titulo'%}
+Relatórios
+{% endblock%}
+
+{% block 'conteudo'%}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Relatórios</li>
+    </ol>
+</nav>
+
+<h1 style="padding-top: 20px;" class="text-center text-primary">Relatórios das despesas</h1>
+{% include 'parciais/_messages.html'%}
+
+<div class="row py-5">
+    
+    <div class="col-md-4 col-sm-6 col-12 mb-5">
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); border-radius: 20px; max-height: 200px;" class="py-3 px-3 text-center bg-info">
+            <a href="{% url 'despesas_por_data'%}" class="btn btn-outline btn-lg btn-success" style="border-radius: 20px;">
+                Total de despesas por data (tudo)
+            </a>
+        </div>
+
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); border-radius: 20px;" class="py-3 px-3 my-3 text-center bg-info">
+            <form action="{% url 'despesas_por_intervalo'%}" method="get">
+                <div class="mb-3">
+                    <label class="form-label">Data inicial: </label>
+                    <input type="date" name="data_inicial" value="{{hoje}}" class="form-control">
+                  </div>
+                  
+                <div class="mb-3">
+                    <label class="form-label">Data final: </label>
+                    <input type="date" name="data_final" value="{{hoje}}" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success" style="border-radius: 20px;">Total de despesas por intervalo de datas</button>
+            </form>
+        </div>
+    </div>
+
+    
+
+    <div class="col-md-4 col-sm-6 col-12 mb-5">
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); border-radius: 20px; max-height: 200px;" class="py-3 px-3 text-center bg-info">
+            <a href="{% url 'despesas_por_tipo'%}" class="btn btn-outline btn-lg btn-success" style="border-radius: 20px;">
+                Total de despesas por tipo (tudo)
+            </a>
+        </div>
+
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); border-radius: 20px;" class="py-3 px-3 my-3 text-center bg-info">
+            <form action="{% url 'despesas_por_tipo_intervalo'%}" method="get" name="form_tipo">
+                <div class="mb-3">
+                    <label class="form-label">Data inicial: </label>
+                    <input type="date" name="data_inicial_tipo" value="{{hoje}}" class="form-control">
+                  </div>
+                  
+                <div class="mb-3">
+                    <label class="form-label">Data final: </label>
+                    <input type="date" name="data_final_tipo" value="{{hoje}}" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success" style="border-radius: 20px;">Total de despesas por tipo e intervalo de datas</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-12 mb-5">
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); border-radius: 20px; max-height: 200px;" class="py-3 px-3 text-center bg-info">
+            <a href="{% url 'despesas_por_grupo'%}" class="btn btn-outline btn-lg btn-success" style="border-radius: 20px;">
+                Total de despesas por grupo (tudo)
+            </a>
+        </div>
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); border-radius: 20px;" class="py-3 px-3 my-3 text-center bg-info">
+            <form action="{% url 'despesas_por_grupo_intervalo'%}" method="get" name="form_grupo">
+                <div class="mb-3">
+                    <label class="form-label">Data inicial: </label>
+                    <input type="date" name="data_inicial_grupo" value="{{hoje}}" class="form-control">
+                  </div>
+                  
+                <div class="mb-3">
+                    <label class="form-label">Data final: </label>
+                    <input type="date" name="data_final_grupo" value="{{hoje}}" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success" style="border-radius: 20px;">Total de despesas por grupo e intervalo de datas</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-12 mb-5">
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); border-radius: 20px; max-height: 200px;" class="py-3 px-3 text-center bg-info">
+            <a href="{% url 'despesas_por_fpag'%}" class="btn btn-outline btn-lg btn-success" style="border-radius: 20px;">
+                Total de despesas por forma de pagamento (tudo)
+            </a>
+        </div>
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); border-radius: 20px;" class="py-3 px-3 my-3 text-center bg-info">
+            <form action="{% url 'despesas_por_fpag_intervalo'%}" method="get" name="form_fpag">
+                <div class="mb-3">
+                    <label class="form-label">Data inicial: </label>
+                    <input type="date" name="data_inicial_tipo" value="{{hoje}}" class="form-control">
+                  </div>
+                  
+                <div class="mb-3">
+                    <label class="form-label">Data final: </label>
+                    <input type="date" name="data_final_tipo" value="{{hoje}}" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success" style="border-radius: 20px;">Total de despesas por forma de pagamento e intervalo de datas</button>
+            </form>
+        </div>
+    </div>
+    
+</div>
+<br><br>
+
+{% endblock %}

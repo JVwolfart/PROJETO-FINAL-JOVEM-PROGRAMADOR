@@ -1,0 +1,125 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block 'titulo'%}
+Dashboard de {{mes}}/{{ano}}
+{% endblock%}
+
+{% block 'conteudo'%}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Dashboard de {{mes}}/{{ano}}</li>
+  </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-6">
+
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <div class="my-2">
+            <form action="{% url 'dashboard_mes'%}" method="post">
+              {% csrf_token %}
+                <select class="form-select" aria-label="Default select example" name="atividade">
+                    <option selected value="">Períodos anteriores</option>
+                    {% for a in atividade %}
+                    <option value="{{a.data__month}},{{a.data__year}}">{{a.mes|date:"M"}}/{{a.data__year}}, registros={{a.count}}</option>
+                    {%endfor%}
+                  </select>
+                  <button type="submit" class="btn btn-primary my-2">Selecionar</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <div class="text-end my-2">
+            <a href="{% url 'despesa'%}" class="text-end btn btn-outline-primary">Lançar despesas</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<h1 style="padding-top: 20px;" class="text-center text-primary mt-3">Dashboard</h1>
+{% include 'parciais/_messages.html'%}
+{% if user.first_name != ''%}
+<h4 style="padding-top: 20px;" class="text-center text-primary mb-3">Despesas por grupo de {{mes}}/{{ano}} de {{user.first_name}} {{user.last_name}}</h4>
+{% else %}
+<h4 style="padding-top: 20px;" class="text-center text-primary mb-3">Despesas por grupo de {{mes}}/{{ano}} do usuário {{user}}</h4>
+{% endif %}
+
+{% if total != 0 %}
+<div class="row">
+
+  <div class="col-md-6 col-12 my-2">
+    <div class="row" style="width: 100%;">
+        <div class="col-1 bg-danger" style="border-radius: 20px 0 0 20px; box-shadow: 10px 10px 10px rgb(175, 175, 175);">
+            
+        </div>
+        <div class="col-10 bg-light" style="box-shadow: 10px 10px 10px rgb(175, 175, 175);">
+            <p class="fs-3 text-success"><b>Acumulado em {{mes}}/{{ano}}</b></p>
+            <p class="fs-1 text-danger">R$ {{total}}</p>
+        </div>
+        <div class="col-1 bg-light" style="box-shadow: 10px 10px 10px rgb(175, 175, 175); border-radius: 0 20px 20px 0;">
+            
+        </div>
+    </div>
+</div>
+
+    {% for d in despesas %}
+    <div class="col-md-6 col-12 my-2">
+        <div class="row" style="width: 100%;">
+            <div class="col-1 bg-success" style="border-radius: 20px 0 0 20px; box-shadow: 10px 10px 10px rgb(175, 175, 175);">
+                
+            </div>
+            <div class="col-6 bg-light" style="box-shadow: 10px 10px 10px rgb(175, 175, 175);">
+                <p class="fs-6 text-success"><b>{{d.tipo__grupo__grupo}}</b></p>
+                <p class="fs-3 text-danger">R$ {{d.total}}</p>
+            </div>
+            <div class="col-5 bg-light" style="box-shadow: 10px 10px 10px rgb(175, 175, 175); border-radius: 0 20px 20px 0;">
+                <p class="fs-6 text-secondary">Registros</p>
+                <p class="fs-3 text-primary"><b>{{d.count}}</b><a href="{% url 'despesas_dashboard_mes' d.tipo__grupo%}?mes={{mes}}&ano={{ano}}" class="text-end mx-4" title='Ver despesas'><i class="fa-solid fa-eye text-info"></i></a></p>
+                
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+
+
+</div>
+
+ <!-- Gráfico -->
+
+ <html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['Grupo de despesa', 'Valor total'],
+        {% for d in des %}
+        ['{{ d.tipo__grupo__grupo }}',    {{ d.tot }}],
+        {% endfor %}
+        ]);
+
+        var options = {
+          title: 'Despesas por grupo no mês corrente',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="donutchart" style="width: 100%; height: 500px;" class="mt-5"></div>
+  </body>
+</html>
+{%endif%}
+
+{% endblock %}

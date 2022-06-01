@@ -1,0 +1,112 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block 'titulo'%}
+Lançamento de despesas
+{% endblock%}
+
+{% block 'conteudo'%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Lançamento de despesas</li>
+  </ol>
+</nav>
+<h1 style="padding-top: 20px;" class="text-center text-primary">Lançamento de despesas</h1>
+{% include 'parciais/_messages.html'%}
+
+
+<div class="row">
+
+  <div class="col-lg-3"></div>
+    
+  
+  
+  <div class="col-lg-6">
+
+    <form method="post" action="{% url 'lancar_despesa'%}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Tipo de despesa: </label>
+        <select name="tipo" class="form-control">
+          <option value="">Selecione o tipo de despesa</option>
+          {% for t in tipos %}
+          <option value="{{t.id}}">{{t.tipo}}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Data: </label>
+        <input type="date" name="data" value="{{hoje}}" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Forma de pagamento: </label>
+        <select name="fpag" class="form-control">
+          <option value="">Selecione a forma do pagamento</option>
+          {% for f in fpags %}
+          <option value="{{f.id}}">{{f.forma}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Valor: </label>
+        <input type="number" class="form-control" name="valor" step="0.01" placeholder="Valor da despesa" min="0" value="{{request.POST.valor}}">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Descrição da despesa (opcional): </label>
+        <textarea name="despesa" cols="30" rows="10" class="form-control" placeholder="Digite aqui uma breve descrição da sua despesa (opcional)">{{request.POST.despesa}}</textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Lançar despesa</button>
+    </form>
+
+  </div>
+
+  <div class="col-md-3 col-6 mt-5">
+    <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); background-color:aquamarine; border-radius: 20px;" class="py-3 px-3 text-center">
+      
+      <a href="{% url 'manut_despesas' %}">
+        <div>
+          <img src="{% static 'img/icone_manut_despesas.jpg'%}" style="width: 80%;" class="rounded-circle">
+        </div>
+        <div>
+          Manutenção de Lançamentos
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <h1 class="text-center text-primary my-5">Últimas 5 despesas lançadas</h1>
+
+  <div class="col-12">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Grupo</th>
+          <th scope="col">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in despesas%}
+        <tr>
+            <td>{{c.data}}</td>
+            <td>{{c.tipo}}</td>
+            <td>{{c.tipo.grupo}}</td>
+            <td>R$ {{c.valor}}</td>
+            <td><a href="{% url 'alterar_despesa' c.id%}" title='Manutenção de despesa'><i class="fa-solid fa-pen-to-square text-primary"></i></a></td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+
+</div>
+</div>
+
+
+{% endblock %}

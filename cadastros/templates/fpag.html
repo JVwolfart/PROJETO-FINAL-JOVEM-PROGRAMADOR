@@ -1,0 +1,102 @@
+{% extends 'base.html'%}
+
+{% block 'titulo'%}
+Cadastro de formas de pagamento
+{% endblock%}
+
+{% block 'conteudo'%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'cadastros'%}">Cadastros</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Formas de pagamento</li>
+  </ol>
+</nav>
+
+<h1 style="padding-top: 20px;" class="text-center text-primary">Formas de pagamento</h1>
+{% include 'parciais/_messages.html'%}
+
+
+<div class="row">
+
+
+  <div class="col-lg-4">
+
+    <form method="post" action="{% url 'adicionar_fpag'%}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Nova forma de pagamento: </label>
+        <input type="text" class="form-control" name="fpag" placeholder="Nova forma de pagamento" value="{{request.POST.fpag}}">
+      </div>
+      <button type="submit" class="btn btn-primary">Adicionar forma de pagamento</button>
+    </form>
+
+  </div>
+
+
+  <div class="col-lg-8">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Forma</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Ativar/desativar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in fpags%}
+        <tr>
+            <td>{{c.id}}</td>
+            <td>{{c.forma}}</td>
+            {% if not c.padrao %}
+            {% if c.ativo %}
+            <td class="text-success">Personalizado</td>
+            {% else %}
+            <td class="text-danger">Personalizado/desativado</td>
+            {% endif %}
+            
+            {% if c.ativo %}
+            <td><a href="{% url 'alterar_fpag' c.id %}" class="btn" title="Alterar forma de pagamento"><i class="fa-solid fa-pen-to-square text-primary"></i> Editar</a></td>
+            <td><a href="{% url 'desativar_fpag' c.id %}" class="btn" title="Desativar forma de pagamento"><i class="fa-solid fa-trash text-danger"></i> Desativar</a></td>
+            {% else %}
+            <td><a href="{% url 'alterar_fpag' c.id %}" class="btn disabled" title="Alterar forma de pagamento"><i class="fa-solid fa-pen-to-square text-primary"></i> Editar</a></td>
+            <td><a href="{% url 'desativar_fpag' c.id %}" class="btn" title="Reativar forma de pagamento"><i class="fa-solid fa-circle-check text-success"></i> Ativar</a></td>
+            {% endif %}
+            {% else %}
+            <td class="text-primary">Padrão</td>
+            {% endif %}
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+    
+    <!--<nav aria-label="Page navigation example" class="text-center justify-content-center">
+      <ul class="pagination justify-content-center">
+        {%if medidas.has_previous%}
+        <li class="page-item">
+          <a class="page-link" href="?p={{medidas.previous_page_number}}">Anterior</a>
+        </li>
+        {%endif%}
+        {%for pagina in medidas.paginator.page_range%}
+        {%if medidas.number == pagina%}
+          <li class="page-item active"><a class="page-link bg-success" href="?p={{pagina}}">{{pagina}}</a></li>
+        {% else %}
+          <li class="page-item"><a class="page-link" href="?p={{pagina}}">{{pagina}}</a></li>
+        {%endif%}
+        {%endfor%}
+        {%if medidas.has_next%}
+        <li class="page-item">
+          <a class="page-link" href="?p={{medidas.next_page_number}}">Próxima</a>
+        </li>
+        {%endif%}
+      </ul>
+    </nav>-->
+  </div>
+  
+
+</div>
+
+
+{% endblock %}

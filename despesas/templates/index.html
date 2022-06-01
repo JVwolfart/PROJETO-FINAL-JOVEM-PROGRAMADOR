@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block 'titulo'%}
+Home
+{% endblock%}
+
+{% block 'conteudo'%}
+<h1 style="padding-top: 20px;" class="text-center text-primary">Menu principal</h1>
+{% include 'parciais/_messages.html'%}
+
+<div class="row py-5">
+    
+    <div class="col-md-3 col-6 mb-5">
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); background-color:aquamarine; border-radius: 20px; max-height: 200px;" class="py-3 px-3 text-center">
+            <a href="{% url 'despesa'%}">
+                <img src="{% static 'img/icone_lancamento.png'%}" style="width:100%; max-height: 150px;">
+                Lançamento de despesas
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-5">
+
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); background-color:aquamarine; border-radius: 20px; max-height: 200px;" class="py-3 px-3 text-center">
+            <a href="{% url 'cadastros'%}">
+                <img src="{% static 'img/icone_cadastro.png'%}" style="width:100%; max-height: 150px;">
+                Área de cadastros
+            </a>
+        </div>
+    </div>
+    
+
+    <div class="col-md-3 col-6 mb-5">
+        <div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); background-color:aquamarine; border-radius: 20px; max-height: 200px;" class="py-3 px-3 text-center">
+            <a href="{% url 'relatorios'%}">
+                <img src="{% static 'img/icone_relatorio.png'%}" style="width:100%; max-height: 150px;">
+                Relatórios
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-5">
+        <!--<div style="box-shadow: 10px 10px 10px rgb(175, 175, 175); background-color:aquamarine; border-radius: 20px;" class="py-3 px-3 text-center max-height: 200px;">
+            <a href="">
+                <img src="{% static 'img/icone_agenda.png'%}" style="width:100%; max-height: 150px;">
+                Agendamento
+            </a>
+        </div>-->
+    </div>
+    
+</div>
+<br><br>
+
+{% endblock %}
