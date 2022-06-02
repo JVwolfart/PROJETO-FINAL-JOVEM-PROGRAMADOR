@@ -30,10 +30,10 @@ Pesquisa por {{termo}}
       <tbody>
         {% for c in despesas%}
         <tr>
-            <td>R$ {{c.data}}</td>
+            <td>{{c.data}}</td>
             <td>{{c.tipo}}</td>
             <td>{{c.tipo.grupo}}</td>
-            <td>{{c.valor}}</td>
+            <td>R$ {{c.valor}}</td>
             <td><a href="{% url 'alterar_despesa' c.id%}" title='Manutenção de despesa'><i class="fa-solid fa-pen-to-square text-primary"></i></a></td>
         </tr>
         {%endfor%}
