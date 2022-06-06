@@ -1,0 +1,120 @@
+{% extends 'base_login.html'%}
+{% load static%}
+{% block 'titulo'%}
+Desenvolvedores do sistema
+{% endblock%}
+
+{% block 'conteudo'%}
+
+
+<h1 style="padding-top: 20px;" class="text-center text-primary my-5">Equipe de desenvolvimento</h1>
+{% include 'parciais/_messages.html'%}
+
+<div class="card mb-3" style="max-width: 90%; box-shadow: 10px 10px 10px rgb(175, 175, 175);">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{% static 'img/OBMEP.jpg'%}" class="img-fluid rounded-start">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">João Vitor Wolfart</h5>
+          <ul style="list-style: inside">
+              <li>Autodidata</li>
+              <li>Finalizando o curso Jovem Programador do SENAC</li>
+              <li>Aguardando uma oportunidade de estágio em uma das empresas parceiras patrocinadoras do Jovem Programador</li>
+              <li>Apaixonado por programação e por TI</li>
+              <li>Medalhista de bronze da Olimpíada de Matemática da OBMEP em 2018 e 2021.</li>
+          </ul>
+          <p class="card-text">Redes sociais:</p>
+          <ul>
+              <li><a href="https://github.com/JVwolfart" target="_blank"><i class="fa-brands fa-github"></i> Github</a></li>
+              <li><a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-wolfart-524121227/" target="_blank"><i class="fa-brands fa-linkedin"></i> Linkedin</a></li>
+              <li><a href="https://www.facebook.com/joaovitor.wolfart" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+              <li><a href="https://www.instagram.com/joaovitorwolfart/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+          </ul>
+          
+          
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="card mb-3" style="max-width: 90%; box-shadow: 10px 10px 10px rgb(175, 175, 175);">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{% static 'img/kauan.png'%}" class="img-fluid rounded-start">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Kauan Trindade Gonçalves</h5>
+          <ul style="list-style: inside">
+              <li>17 anos</li>
+              <li>Finalizando o curso Jovem Programador do SENAC</li>
+              <li>Aguardando uma oportunidade de estágio em uma das empresas parceiras patrocinadoras do Jovem Programador</li>
+              <li>Nível de inglês intermediário</li>
+          </ul>
+          
+          <p class="card-text">Redes sociais:</p>
+          <ul>
+              <li><a href="https://github.com/kauantg0304" target="_blank"><i class="fa-brands fa-github"></i> Github</a></li>
+              <li><a href="https://www.linkedin.com/in/kauan-trindade-gon%C3%A7alves-856b5621a" target="_blank"><i class="fa-brands fa-linkedin"></i> Linkedin</a></li>
+          </ul>
+          
+          
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="card mb-3" style="max-width: 90%; box-shadow: 10px 10px 10px rgb(175, 175, 175);">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{% static 'img/marcelo.png'%}" class="img-fluid rounded-start">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Marcelo Henrique Gaspar Gonçalves</h5>
+          <ul style="list-style: inside">
+              <li>Cursando Sistemas da Informação na Unisul</li>
+              <li>Finalizando o curso Jovem Programador do SENAC</li>
+              <li>Aguardando uma oportunidade de estágio em uma das empresas parceiras patrocinadoras do Jovem Programador</li>
+          </ul>
+          <p class="card-text">Redes sociais:</p>
+          <ul>
+              <li><a href="https://github.com/marcelopk" target="_blank"><i class="fa-brands fa-github"></i> Github</a></li>
+              <li><a href="https://www.linkedin.com/in/marcelo-gaspar-968aaa218/" target="_blank"><i class="fa-brands fa-linkedin"></i> Linkedin</a></li>
+          </ul>
+          
+          
+        </div>
+      </div>
+    </div>
+</div>
+
+<h1 style="padding-top: 20px;" class="text-center text-primary my-5">Professor</h1>
+
+<div class="card mb-3" style="max-width: 90%; box-shadow: 10px 10px 10px rgb(175, 175, 175);">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{% static 'img/professor.jpg'%}" class="img-fluid rounded-start">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Wildson Caio Felipe</h5>
+        <ul style="list-style: inside">
+            <li>Professor do curso Jovem Programador SENAC</li>
+            <li>Unidade de Palhoça</li>
+            <li>Desenvolvedor apaixonado pela área de tecnologia, buscando sempre se atualizar sobre as novas tecnologias do mercado.</li>
+        </ul>
+        
+        <p class="card-text">Redes sociais:</p>
+          <ul>
+              <li><a href="https://github.com/WildsonCaio" target="_blank"><i class="fa-brands fa-github"></i> Github</a></li>
+              <li><a href="https://www.linkedin.com/in/wildson-caio-7055a7122/" target="_blank"><i class="fa-brands fa-linkedin"></i> Linkedin</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
