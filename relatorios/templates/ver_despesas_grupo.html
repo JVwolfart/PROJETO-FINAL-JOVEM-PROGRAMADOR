@@ -17,6 +17,7 @@ Despesas por grupo
 <h3 style="padding-top: 20px;" class="text-center text-info">Total gasto neste período para este grupo: R$ {{total}}</h3>
 {% include 'parciais/_messages.html'%}
 
+<a href="{% url 'ver_despesas_grupo_intervalo_print' grupo.id%}?data_inicial={{data_inicial_sf}}&data_final={{data_final_sf}}" class="btn btn-outline-primary" target="_blank">Preparar para impressão <i class="fa-solid fa-print"></i></a>
 
 <div class="row">
 

@@ -16,12 +16,12 @@ Cadastro de usuários
               {% csrf_token %}
 
               <div class="mb-3">
-                <label class="form-label">Nome</label>
+                <label class="form-label">Nome (não utilize números e caracteres especiais)</label>
                 <input type="text" class="form-control" placeholder="Nome" name="nome" value="{{request.POST.nome}}">
               </div>
 
               <div class="mb-3">
-                <label class="form-label">Sobrenome</label>
+                <label class="form-label">Sobrenome (não utilize números e caracteres especiais)</label>
                 <input type="text" class="form-control" placeholder="Sobrenome" name="sobrenome" value="{{request.POST.sobrenome}}">
               </div>
               <div class="mb-3">
@@ -29,11 +29,11 @@ Cadastro de usuários
                 <input type="email" class="form-control" placeholder="E-mail" name="email" value="{{request.POST.email}}">
               </div>
               <div class="mb-3">
-                <label class="form-label">Usuário</label>
+                <label class="form-label">Usuário (mínimo 4 caracteres)</label>
                 <input type="text" class="form-control" placeholder="Usuário" name="usuario" value="{{request.POST.usuario}}">
               </div>
               <div class="mb-3">
-                <label class="form-label">Senha</label>
+                <label class="form-label">Senha (mínimo 8 caracteres)</label>
                 <input type="password" class="form-control" placeholder="Senha" name="senha">
               </div>
 

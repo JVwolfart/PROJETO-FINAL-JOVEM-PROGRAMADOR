@@ -57,6 +57,9 @@ def lancar_despesa(request):
         data = request.POST.get('data')
         valor = request.POST.get('valor')
         despesa = request.POST.get('despesa').strip().title()
+        if len(data) > 10:
+            messages.add_message(request, messages.ERROR, 'Data inválida')
+            return render(request, 'lancamentos.html', {'fpags':fpags, 'tipos':tipos, 'hoje':hoje, 'despesas':despesas})
         if not valor or valor == '':
             valor = 0
         if not id_tipo or id_tipo == '':
@@ -101,6 +104,9 @@ def alterar_despesa(request, id):
         data_despesa = request.POST.get('data')
         valor = request.POST.get('valor')
         descricao_despesa = request.POST.get('despesa').strip().title()
+        if len(data_despesa) > 10:
+            messages.add_message(request, messages.ERROR, 'Data inválida')
+            return render(request, 'alterar_despesa.html',{'fpags':fpags, 'tipos':tipos, 'despesa':despesa, 'data':data, 'valor_despesa':valor_despesa})
         if not valor or valor == '':
             valor = 0
         if not id_tipo or id_tipo == '':

@@ -17,6 +17,13 @@ Despesas por forma de pagamento
 <h3 style="padding-top: 20px;" class="text-center text-info">Total pago com {{fpag}}: R$ {{total}}</h3>
 {% include 'parciais/_messages.html'%}
 
+{% if 'intervalo' in request.path%}
+<a href="{% url 'ver_despesas_fpag_intervalo_print' fpag.id%}?data_inicial={{data_inicial_sf}}&data_final={{data_final_sf}}" class="btn btn-outline-primary" target="_blank">Preparar para impressão <i class="fa-solid fa-print"></i></a>
+{% else %}
+<a href="{% url 'ver_despesas_fpag_print' fpag.id%}" class="btn btn-primary" target="_blank">Preparar para impressão <i class="fa-solid fa-print"></i></a>
+{%endif%}
+
+
 
 <div class="row">
 

@@ -18,7 +18,6 @@ def dashboard(request):
     ano = hoje.year
     user = request.user
     total_full = 0
-
     despesas_full = Despesa.objects.all().filter(
         usuario=user
     ).values('data__year').annotate(total=Sum('valor'), count=Count('data__year')).order_by('data__year')
@@ -39,12 +38,7 @@ def dashboard(request):
     ).values('data__year').annotate(count=Count('data__year')).order_by('-data__year')
     for a in atividade:
         a['mes'] = str(a['data__month'])
-        a['mes'] = datetime.strptime(a['mes'], '%m')
-
-        #a['mes'] = datetime(int(a['data__month']), '%m')
-        #a['mes'] = a['data__month'].format('%m')
-    
-        
+        a['mes'] = datetime.strptime(a['mes'], '%m')        
     despesas = Despesa.objects.all().filter(
         usuario=user, data__month=mes, data__year=ano
     ).values('tipo__grupo__grupo', 'tipo__grupo').annotate(total=Sum('valor'), count=Count('tipo__grupo')).order_by('-total')
@@ -60,8 +54,6 @@ def dashboard(request):
         messages.add_message(request, messages.INFO, f"Nenhuma despesa registrada nesse ano para {user.first_name} {user.last_name}, clique em lançar despesas e inclua registros para visualizar os resultados no dashboard")
         return render(request, 'dashboard.html', {'total':total, 'grafico_ano':grafico_ano, 'ativ_ano':ativ_ano, 'total_full':total_full, 'despesas_full':despesas_full, 'atividade':atividade})
     grafico_ano = resumo_ano(despesas_ano)
-
-
     if len(despesas) == 0:
         messages.add_message(request, messages.INFO, 'Nenhuma despesa registrada nesse mês')
         despesas = []
@@ -79,10 +71,6 @@ def dashboard(request):
     ).values('tipo__grupo__grupo', 'tipo__grupo').annotate(total=Sum('valor'), count=Count('tipo__grupo')).order_by('-total')
     for d in des:
         d['tot'] = round(d['total'])
-    
-    
-    
-    
     return render(request, 'dashboard.html', {'despesas':despesas, 'des':des, 'total':total, 'atividade':atividade, 'grafico_ano':grafico_ano, 'registros':registros, 'ativ_ano':ativ_ano, 'despesas_full':despesas_full, 'total_full':total_full})
 
 @login_required(login_url='login')
@@ -202,3 +190,113 @@ def dashboard_ano(request):
     return render(request, 'dashboard_ano.html', {'grafico':grafico, 'ano':ano})
 
 
+@login_required(login_url='login')
+def dashboard_print(request):
+    hoje = datetime.today()
+    mes = hoje.month
+    ano = hoje.year
+    user = request.user
+    total_full = 0
+    despesas_full = Despesa.objects.all().filter(
+        usuario=user
+    ).values('data__year').annotate(total=Sum('valor'), count=Count('data__year')).order_by('data__year')
+    if len(despesas_full) == 0:
+        total_full = 0
+        messages.add_message(request, messages.INFO, f'Sem registros para listar')
+        print(total_full)
+        return render(request, 'print/dashboard.html', {'total_full':total_full})
+    for d in despesas_full:
+        d['total'] = round(d['total'], 2)
+        total_full += d['total']
+        d['tot'] = int(d['total'])
+    atividade = Despesa.objects.all().filter(
+        usuario=user
+    ).values('data__month', 'data__year').annotate(count=Count('data__month')).order_by('-data__year', '-data__month')
+    ativ_ano = Despesa.objects.all().filter(
+        usuario=user
+    ).values('data__year').annotate(count=Count('data__year')).order_by('-data__year')
+    for a in atividade:
+        a['mes'] = str(a['data__month'])
+        a['mes'] = datetime.strptime(a['mes'], '%m')
+    despesas = Despesa.objects.all().filter(
+        usuario=user, data__month=mes, data__year=ano
+    ).values('tipo__grupo__grupo', 'tipo__grupo').annotate(total=Sum('valor'), count=Count('tipo__grupo')).order_by('-total')
+    registros = 0
+    despesas_ano = Despesa.objects.all().filter(
+        usuario=user, data__year=ano
+    ).values('data__month').annotate(total=Sum('valor'), count=Count('data__month'))
+    if len(despesas_ano) == 0:
+        despesas = []
+        des = []
+        total = 0
+        grafico_ano = {'total':0}
+        messages.add_message(request, messages.INFO, f"Nenhuma despesa registrada nesse ano para {user.first_name} {user.last_name}, clique em lançar despesas e inclua registros para visualizar os resultados no dashboard")
+        return render(request, 'print/dashboard.html', {'total':total, 'grafico_ano':grafico_ano, 'ativ_ano':ativ_ano, 'total_full':total_full, 'despesas_full':despesas_full, 'atividade':atividade})
+    grafico_ano = resumo_ano(despesas_ano)
+    if len(despesas) == 0:
+        messages.add_message(request, messages.INFO, 'Nenhuma despesa registrada nesse mês')
+        despesas = []
+        des = []
+        total = 0
+        return render(request, 'print/dashboard.html', {'despesas':despesas, 'des':des, 'total':total, 'grafico_ano':grafico_ano, 'ativ_ano':ativ_ano, 'total_full':total_full, 'despesas_full':despesas_full, 'atividade':atividade})
+    for d in despesas:
+        registros += d['count']
+        d['tot'] = round(d['total'])
+        d['total'] = f'{d["total"]:.2f}'
+    total = despesas.aggregate(Sum('total'))
+    total = f"{total['total__sum']:.2f}"
+    des = Despesa.objects.all().filter(
+        usuario=user, data__month=mes, data__year=ano
+    ).values('tipo__grupo__grupo', 'tipo__grupo').annotate(total=Sum('valor'), count=Count('tipo__grupo')).order_by('-total')
+    for d in des:
+        d['tot'] = round(d['total'])
+    return render(request, 'print/dashboard.html', {'despesas':despesas, 'des':des, 'total':total, 'atividade':atividade, 'grafico_ano':grafico_ano, 'registros':registros, 'ativ_ano':ativ_ano, 'despesas_full':despesas_full, 'total_full':total_full})
+
+@login_required(login_url='login')
+def dashboard_mes_print(request):
+    user = request.user
+    mes = request.GET.get('mes')
+    ano = request.GET.get('ano')
+    if not mes or not ano:
+        messages.add_message(request, messages.WARNING, 'Nenhum período selecionado, verifique')
+        return redirect('home')
+    else:
+        mes = int(mes)
+        ano = int(ano)
+        despesas = Despesa.objects.all().filter(
+            usuario=user, data__month=mes, data__year=ano
+        ).values('tipo__grupo__grupo', 'tipo__grupo').annotate(total=Sum('valor'), count=Count('tipo__grupo')).order_by('-total')
+        if len(despesas) == 0:
+            messages.add_message(request, messages.INFO, 'Nenhuma despesa registrada nesse mês')
+            despesas = []
+            des = []
+            total = 0
+            return redirect('home')
+        for d in despesas:
+            d['tot'] = round(d['total'])
+            d['total'] = f'{d["total"]:.2f}'
+        total = despesas.aggregate(Sum('total'))
+        total = f"{total['total__sum']:.2f}"
+        des = Despesa.objects.all().filter(
+            usuario=user, data__month=mes, data__year=ano
+        ).values('tipo__grupo__grupo', 'tipo__grupo').annotate(total=Sum('valor'), count=Count('tipo__grupo')).order_by('-total')
+        for d in des:
+            d['tot'] = round(d['total'])
+        return render(request, 'print/dashboard_mes.html', {'despesas':despesas, 'des':des, 'total':total, 'mes':mes, 'ano':ano})
+
+@login_required(login_url='login')
+def dashboard_ano_print(request):
+    user = request.user
+    ano = request.GET.get('ano')
+    if not ano or ano == '':
+        messages.add_message(request, messages.WARNING, 'Nenhum ano selecionado, verifique e tente novamente')
+        return redirect('home')
+    despesas = Despesa.objects.all().filter(
+        usuario=user, data__year=ano
+    ).values('data__month').annotate(total=Sum('valor'), count=Count('data__month'))
+    if len(despesas) == 0:
+        messages.add_message(request, messages.INFO, "Nenhuma despesa registrada nesse ano")
+        return redirect('home')
+    grafico = resumo_ano(despesas)
+    
+    return render(request, 'print/dashboard_ano.html', {'grafico':grafico, 'ano':ano})

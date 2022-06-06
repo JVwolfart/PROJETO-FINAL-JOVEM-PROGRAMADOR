@@ -14,7 +14,7 @@ Dashboard de {{mes}}/{{ano}}
 </nav>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
 
     </div>
     <div class="col-md-3 col-sm-6">
@@ -31,9 +31,12 @@ Dashboard de {{mes}}/{{ano}}
             </form>
         </div>
     </div>
-    <div class="col-md-3 col-sm-6">
+    <div class="col-md-5 col-sm-6">
         <div class="text-end my-2">
             <a href="{% url 'despesa'%}" class="text-end btn btn-outline-primary">Lançar despesas</a>
+        </div>
+        <div class="text-end my-2">
+          <a href="{% url 'dashboard_mes_print'%}?mes={{mes}}&ano={{ano}}" class="text-end btn btn-outline-primary" target="_blank">Preparar para impressão <i class="fa-solid fa-print"></i></a>
         </div>
     </div>
 </div>
@@ -107,7 +110,7 @@ Dashboard de {{mes}}/{{ano}}
         ]);
 
         var options = {
-          title: 'Despesas por grupo no mês corrente',
+          title: 'Despesas por grupo em {{mes}}/{{ano}}',
           pieHole: 0.4,
         };
 

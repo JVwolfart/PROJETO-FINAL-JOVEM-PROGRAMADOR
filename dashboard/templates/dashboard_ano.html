@@ -17,26 +17,13 @@ Dashboard do ano de {{ano}}
     <div class="col-md-6">
 
     </div>
-    <!--<div class="col-md-3 col-sm-6">
-        <div class="my-2">
-            <form action="{% url 'dashboard_mes'%}" method="post">
-              {% csrf_token %}
-                <select class="form-select" aria-label="Default select example" name="atividade">
-                    <option selected>Períodos anteriores</option>
-                    {% for a in atividade %}
-                    <option value="{{a.data__month}},{{a.data__year}}">{{a.mes|date:"M"}}/{{a.data__year}}, registros={{a.count}}</option>
-                    {%endfor%}
-                  </select>
-                  <div class="row">
-                    <button type="submit" class="btn btn-primary my-2 mr-3 ml-5">Selecionar</button>
-                  </div>
-                  
-            </form>
-        </div>
-    </div>-->
-    <div class="col-md-3 col-sm-6">
+    <div class="col-md-6 col-sm-6">
         <div class="text-end my-2">
             <a href="{% url 'despesa'%}" class="text-end btn btn-outline-primary">Lançar despesas</a>
+        </div>
+
+        <div class="text-end my-2">
+          <a href="{% url 'dashboard_ano_print'%}?ano={{ano}}" class="text-end btn btn-outline-primary" target="_blank">Preparar para impressão <i class="fa-solid fa-print"></i></a>
         </div>
     </div>
 </div>
@@ -106,7 +93,7 @@ Dashboard do ano de {{ano}}
         var data = google.visualization.arrayToDataTable([
          ['Mês', 'Total', { role: 'style' }],
          {% for a in grafico.grafico %}
-         ['{{a.mes}}/{{ano}}', {{a.total}}, '{{a.cor}}'],
+         ['{{a.mes}}', {{a.total}}, '{{a.cor}}'],
          {% endfor %}           
         ]);
 
