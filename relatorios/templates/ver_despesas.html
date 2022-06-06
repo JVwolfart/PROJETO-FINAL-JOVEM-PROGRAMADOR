@@ -17,6 +17,8 @@ Despesas por data
 <h3 style="padding-top: 20px;" class="text-center text-info">Total de valor neste dia: R$ {{total}}</h3>
 {% include 'parciais/_messages.html'%}
 
+<a href="{% url 'ver_despesas_print' data%}" class="btn btn-primary" target="_blank">Preparar para impressão <i class="fa-solid fa-print"></i></a>
+
 
 <div class="row">
 

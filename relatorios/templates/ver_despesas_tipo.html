@@ -17,7 +17,11 @@ Despesas por tipo
 <h3 style="padding-top: 20px;" class="text-center text-info">Total de valor com {{tipo}}: R$ {{total}}</h3>
 {% include 'parciais/_messages.html'%}
 
-
+{% if 'intervalo' in request.path%}
+<a href="{% url 'ver_despesas_tipo_intervalo_print' tipo.id%}?data_inicial={{data_inicial_sf}}&data_final={{data_final_sf}}" class="btn btn-outline-primary" target="_blank">Preparar para impressão <i class="fa-solid fa-print"></i></a>
+{% else %}
+<a href="{% url 'ver_despesas_tipo_print' tipo.id%}" class="btn btn-primary" target="_blank">Preparar para impressão <i class="fa-solid fa-print"></i></a>
+{%endif%}
 <div class="row">
 
   <div class="col-12">

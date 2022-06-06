@@ -1,4 +1,4 @@
-{% extends 'base.html'%}
+{% extends 'base_login.html'%}
 
 {% block 'titulo'%}
 Login
@@ -31,10 +31,15 @@ Login
                 
                 
               </form>
+              
 
               <div class="row">
-                <p class="text-center">Quer aprender a usar o sistema? <a href="{% url 'tutorial'%}">Veja o tutorial</a></p>
-                <a href="{% url 'tutorial'%}" class="btn btn-outline-info">Tutorial do sistema</a>
+                <p class="text-center">Quer aprender a usar o sistema? <a href="{% url 'tutorial_nl'%}">Veja o tutorial</a></p>
+                <a href="{% url 'tutorial_nl'%}" class="btn btn-outline-info">Tutorial do sistema</a>
+              </div>
+              
+              <div class="row my-3">
+                <a href="{% url 'desenvolvedores_nl'%}" class="btn btn-outline-info">Desenvolvedores</a>
               </div>
               <br><br><br>
         </div>

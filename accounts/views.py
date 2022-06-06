@@ -1,14 +1,16 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.core.validators import  validate_email
-# Create your views here.
 
 def login(request):
     if request.method != 'POST':
-        return render(request, 'login.html')
+        user = request.user
+        if user.is_authenticated:
+            return redirect('home')
+        else:
+            return render(request, 'login.html')
     else:
-        #usuario = request.POST.get('usuario')
         email = request.POST.get('email')
         senha = request.POST.get('senha')
         email_existe = User.objects.all().filter(email=email).exists()
@@ -28,14 +30,28 @@ def login(request):
 
 def cadastro(request):
     if request.method != 'POST':
-        return render(request, 'cadastro.html')
+        user = request.user
+        if user.is_authenticated:
+            return redirect('home')
+        else:
+            return render(request, 'cadastro.html')
     nome = request.POST.get('nome').strip().title()
     sobrenome = request.POST.get('sobrenome').strip().title()
     email = request.POST.get('email').strip()
     usuario = request.POST.get('usuario').strip()
     senha = request.POST.get('senha').strip()
     senha2 = request.POST.get('senha2').strip()
+    if not nome.replace(' ', '').isalpha():
+        messages.add_message(request, messages.WARNING, f'Nome {nome} inválido, não pode conter caracteres especiais ou números')
+        return render(request, 'cadastro.html')
 
+    if not sobrenome.replace(' ', '').isalpha():
+        messages.add_message(request, messages.WARNING, f'Sobrenome {sobrenome} inválido, não pode conter caracteres especiais ou números')
+        return render(request, 'cadastro.html')
+
+    if len(usuario) < 4:
+        messages.add_message(request, messages.WARNING, f'Usuário {usuario} inválido, precisa conter pelo menos 4 caracteres')
+        return render(request, 'cadastro.html')
     try: 
         validate_email(email)
     except:

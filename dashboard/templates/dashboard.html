@@ -13,7 +13,7 @@ Dashboard
 </nav>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
 
     </div>
     {% if total_full != 0%}
@@ -35,10 +35,14 @@ Dashboard
         </div>
     </div>
     {%endif%}
-    <div class="col-md-3 col-sm-6">
+    <div class="col-md-5 col-sm-6">
         <div class="text-end my-2">
             <a href="{% url 'despesa'%}" class="text-end btn btn-outline-primary">Lançar despesas</a>
         </div>
+
+        <div class="text-end my-2">
+          <a href="{% url 'dashboard_print'%}" class="text-end btn btn-outline-primary" target="_blank">Preparar para impressão <i class="fa-solid fa-print"></i></a>
+      </div>
     </div>
 </div>
 
