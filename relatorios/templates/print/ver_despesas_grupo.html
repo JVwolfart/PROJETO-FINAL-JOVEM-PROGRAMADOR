@@ -1,0 +1,48 @@
+{% extends 'base_print.html'%}
+
+{% block 'titulo'%}
+Despesas por grupo
+{% endblock%}
+
+{% block 'conteudo'%}
+<h1 style="padding-top: 20px;" class="text-center text-primary">Despesas do grupo {{grupo}}</h1>
+<h3 style="padding-top: 20px;" class="text-center text-info">Total gasto neste período para este grupo: R$ {{total}}</h3>
+{% include 'parciais/_messages.html'%}
+
+<button class="btn btn-success no_print" onclick="window.print()">Imprimir/gerar PDF <i class="fa-solid fa-print"></i></button>
+
+<div class="row">
+
+  <div class="col-12">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Despesa</th>
+          <th scope="col">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in despesas%}
+        <tr>
+            <td>{{c.data}}</td>
+            <td>{{c.tipo}}</td>
+            <td>{{c.despesa}}</td>
+            <td>R$ {{c.valor}}</td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+
+</div>
+
+
+
+
+</div>
+
+<h3 style="padding-top: 20px;" class="text-center text-info">Total gasto neste período para este grupo: R$ {{total}}</h3>
+
+
+{% endblock %}

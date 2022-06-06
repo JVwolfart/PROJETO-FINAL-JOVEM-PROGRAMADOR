@@ -1,0 +1,7 @@
+@media print{
+    .no_print{
+        display: none;
+    }
+
+    .break { page-break-before: always; }
+}
