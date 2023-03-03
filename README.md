@@ -2,7 +2,7 @@
 
 Projeto final do curso Jovem Programador módulo 3 Web
 
-Escolhemos fazer um sistema de controle de despesas utilizando o framework Django, Bootstrap, Google Charts, banco de dados Sqlite para desenvolvimento e Postgresql para deploy.
+Escolhemos fazer um sistema de controle de despesas utilizando o framework Django, Bootstrap, Google Charts, banco de dados Sqlite para desenvolvimento e MySQL para deploy.
 
 De acordo com a maior parte dos educadores financeiros, um dos passos mais importantes para educação financeira é primeiramente a pessoa anotar todos os seus gastos e despesas para ter uma ideia de onde está gastando o seu dinheiro.
 
