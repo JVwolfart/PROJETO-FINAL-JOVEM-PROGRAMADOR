@@ -20,5 +20,7 @@ psycopg2-binary==2.9.3
 sqlparse==0.4.2
 whitenoise==6.1.0
 
-Link do Heroku com o deploy do sistema: https://senac-despesas.herokuapp.com/
+Link do Heroku com o deploy do sistema: 
+
+https://despesas.pinheirasc.com/
 
